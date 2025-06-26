@@ -7,8 +7,8 @@
 
     - name: Take MySQL backup and write to dump file
       ansible.builtin.shell: >
-        sudo bash -c 'mysqldump -u root -p"1234" demo  > /tmp/dump.sql'
+        sudo bash -c 'mysqldump -u root -p"1234" demo  > /tmp/dump3.sql'
 
     - name: Upload dump file to S3 bucket
       ansible.builtin.shell: >
-        /usr/local/bin/aws s3 cp /tmp/dump.sql s3://mysql-dump11/
+        /usr/local/bin/aws s3 scp /tmp/dump.sql s3://mysql-dump11/
